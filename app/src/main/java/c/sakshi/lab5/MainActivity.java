@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickFunction(View view)  {
-        EditText myTextField = (EditText) findViewById(R.id.username_edittext);
+        EditText myTextField = (EditText) findViewById(R.id.edit_user);
         String str = myTextField.getText().toString();
 
         SharedPreferences sharedPreferences = getSharedPreferences("c.sakshi.lab5", Context.MODE_PRIVATE );

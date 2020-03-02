@@ -22,28 +22,22 @@ import java.util.ArrayList;
 public class Main2Activity extends AppCompatActivity {
 
     public static ArrayList<Note> notes;
-    TextView welcomeMessage;
+    TextView helloMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
+        helloMsg = (TextView) findViewById(R.id.helloMsg);
         Intent intent = getIntent();
         String str = intent.getStringExtra("username");
-        welcomeMessage.setText("Welcome " + str + "!");
+        helloMsg.setText("Welcome " + str + "!");
 
         Context context = getApplicationContext();
         SQLiteDatabase sqLiteDatabase = context.openOrCreateDatabase("notes", Context.MODE_PRIVATE, null);
         DBHelper dbHelper = new DBHelper(sqLiteDatabase);
         notes = dbHelper.readNotes(str);
-
-
-
-        //SQLiteDatabase sqLiteDatabase;
-        //DBHelper dbHelper = new DBHelper(sqLiteDatabase);
-
 
         ArrayList<String> displayNotes = new ArrayList<>();
         for (Note note : notes) {
@@ -78,7 +72,6 @@ public class Main2Activity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()) {
             case R.id.item1:
-                //Toast.makeText(this, "Item 1 selected", Toast.LENGTH_SHORT).show();
                 goToActivity3();
                 return true;
             case R.id.item2:
